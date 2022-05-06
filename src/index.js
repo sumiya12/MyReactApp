@@ -4,13 +4,13 @@ import "./index.css";
 import "./App.css";
 // import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import Player from "./Player";
+import Player from "./components/Player";
+import MyApp from "./components/MyApp";
+import App from "./App";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Player />
-    <Player />
-    <Player />
+    <App />
   </React.StrictMode>,
   document.getElementById("root")
 );

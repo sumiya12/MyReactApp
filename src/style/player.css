@@ -1,0 +1,20 @@
+.playerscore {
+  display: flex;
+  justify-content: space-around;
+  width: 500px;
+  /* border: 1px solid; */
+}
+div {
+  text-align: center;
+}
+div p {
+  font-weight: 800;
+  font-size: 25px;
+}
+h1 {
+  padding-left: 30px;
+  margin-left: 30px;
+}
+p {
+  padding-left: 30px;
+}
