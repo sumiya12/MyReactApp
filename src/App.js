@@ -36,7 +36,7 @@ const playerDatas = [
     score: 30,
   },
   {
-    name: "baldan",
+    name: "doljin",
     age: 25,
     gender: "female",
     score: 30,
