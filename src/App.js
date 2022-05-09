@@ -4,18 +4,18 @@ import MyApp from "./components/MyApp";
 import Button from "./components/Button";
 import { useState } from "react";
 
-const playerData = [
+const playerDatas = [
   {
     name: "Erhes",
     age: 19,
     gender: "male",
-    score: 15,
+    score: 45,
   },
   {
     name: "Miigaa",
     age: 26,
     gender: "male",
-    score: 20,
+    score: 60,
   },
   {
     name: "Odko",
@@ -32,48 +32,59 @@ const playerData = [
 ];
 
 function App(props) {
-  const[myScoreSort,setMyScoreSort] = useState(playerData.score)
-  const[mySort,setMySort] = useState(playerData)
-  debugger
-  const MyScoreSort =(p) =>p.sort(function (a, b) {
-    return a.score - b.score;
-  });
+  const [playerData, setPlayerData] = useState(playerDatas);
+  //   const [mySort, setMySort] = useState(playerData);
+  const [count, setCount] = useState(0);
 
-const Mysort = (p)=> p.sort(function(a, b) {
-    const nameA = a.name.toUpperCase(); 
-    const nameB = b.name.toUpperCase(); 
-    // debugger
-    if (nameA < nameB) {
-      return -1;
+  const sortName = () => {
+    let newData = new Array(...playerData);
+    newData.sort((a, b) => {
+      return a.name < b.name ? 1 : -1;
+    });
+    setPlayerData(newData);
+  };
+
+  const sortScore = () => {
+    let newData = new Array(...playerData);
+    newData.sort((a, b) => {
+      return a.score < b.score ? 1 : -1;
+    });
+    setPlayerData(newData);
+  };
+
+  function modify(pm, index) {
+    if (pm == "+") {
+      playerData[index].score += 1;
+    } else {
+      playerData[index].score -= 1;
     }
-    if (nameA > nameB) {
-      return 1;
-    }
-    return 0;
-});
-  // debugger
+    setPlayerData([...playerData]);
+  }
+
   function Avg() {
     let total = 0;
-    for(let i = 0; i < playerData.length; i++) {
-        total += playerData[i].score;
+    for (let i = 0; i < playerData.length; i++) {
+      total += playerData[i].score;
     }
     let avg = total / playerData.length;
-    return avg
+    return avg;
   }
- 
+  let ava = Avg();
+  console.log(ava);
   return (
     <div className="">
       <MyApp />
-      <Button MyScoreSort={myScoreSort} setMyScoreSort={setMyScoreSort} Mysort={Mysort}/>
+      <Button sortName={sortName} sortScore={sortScore} />
       {playerData.map((data, index) => {
         // console.log(data);
+
         return (
           <Player
             key={index}
             playerData={data}
-            recapp={props.rec}
-            avarage={Avg}
-            
+            modify={(pm) => modify(pm, index)}
+            index={index}
+            avarage={ava}
           />
         );
       })}

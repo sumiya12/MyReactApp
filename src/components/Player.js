@@ -1,19 +1,26 @@
 import Score from "./Score";
 import "../style/player.css";
-import { useState } from "react";
+// import { useState } from "react";
 
 export default function Player(props) {
+  // console.log(props);
   // debugger
-  const [score ,setscore] = useState (props.playerData.score)
-  let styles = {color: `rgb(100, ${score}), 100`}
-  // debugger
-  return (
 
-    
-    <div className={props.avarage < score ? "playerscores" : "playerscore1"}  style={styles} >
+  // let styles = {color: `rgb(100, ${score}), 100`}
+  // debugger;
+  return (
+    <div
+      className={
+        props.avarage > props.playerData.score ? "playerscore" : "playerscore1"
+      }
+    >
       <div>{props.playerData.name}</div>
-      <Score playerScore={score} setscore={setscore} avarage={props.avarage}  />
+      <Score
+        modify={props.modify}
+        index={props.index}
+        avarage={props.avarage}
+        playerData={props.playerData.score}
+      />
     </div>
-    
   );
 }
