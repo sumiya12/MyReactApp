@@ -29,6 +29,18 @@ const playerDatas = [
     gender: "female",
     score: 30,
   },
+  {
+    name: "baldan",
+    age: 25,
+    gender: "female",
+    score: 30,
+  },
+  {
+    name: "baldan",
+    age: 25,
+    gender: "female",
+    score: 30,
+  },
 ];
 
 function App(props) {
@@ -69,15 +81,14 @@ function App(props) {
     let avg = total / playerData.length;
     return avg;
   }
+
   let ava = Avg();
   console.log(ava);
   return (
     <div className="">
-      <MyApp />
+      <MyApp too={playerDatas.length} />
       <Button sortName={sortName} sortScore={sortScore} />
       {playerData.map((data, index) => {
-        // console.log(data);
-
         return (
           <Player
             key={index}
