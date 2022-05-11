@@ -3,6 +3,8 @@ import "./App.css";
 import MyApp from "./components/MyApp";
 import Button from "./components/Button";
 import { useState } from "react";
+import AddButton from "./components/AddButton";
+// import { Modal, Button } from "bootstrap";
 
 const playerDatas = [
   {
@@ -57,7 +59,7 @@ function App(props) {
   };
 
   const sortScore = () => {
-    let newData = new Array(...playerData);
+    let newData = new Array([...playerData]);
     newData.sort((a, b) => {
       return a.score < b.score ? 1 : -1;
     });
@@ -72,6 +74,12 @@ function App(props) {
     }
     setPlayerData([...playerData]);
   }
+  function addmydata(addData) {
+    // const newd = new Array();
+    // console.log(newd);
+    // newd.push(addData);
+    setPlayerData([...playerData, addData]);
+  }
 
   function Avg() {
     let total = 0;
@@ -83,7 +91,7 @@ function App(props) {
   }
 
   let ava = Avg();
-  console.log(ava);
+  // console.log(ava);
   return (
     <div className="">
       <MyApp too={playerDatas.length} />
@@ -99,6 +107,7 @@ function App(props) {
           />
         );
       })}
+      <AddButton addmydata={addmydata} />
     </div>
   );
 }
