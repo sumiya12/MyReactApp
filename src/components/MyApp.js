@@ -1,4 +1,5 @@
 import "../style/player.css";
+import Main from "./Main";
 export default function MyApp(props) {
   return (
     <div className="div">

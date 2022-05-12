@@ -1,4 +1,5 @@
 import "../style/player.css";
+import Main from "./Main";
 export default function Button(props) {
   // debugger;
   return (

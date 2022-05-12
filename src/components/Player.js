@@ -1,25 +1,38 @@
 import Score from "./Score";
 import "../style/player.css";
-// import { useState } from "react";
+import { useState } from "react";
 
 export default function Player(props) {
+  // const [remove, setRemove] = useState(false);
   // console.log(props);
-  // debugger
+  const handleRem = () => {
+    props.remMydata(props.index);
+  };
 
-  // let styles = {color: `rgb(100, ${score}), 100`}
-  // debugger;
+  console.log(props.highscore);
+
   return (
     <div
       className={
         props.avarage > props.playerData.score ? "playerscore" : "playerscore1"
       }
     >
-      <div>{props.playerData.name}</div>
+      {props.highscore === props.playerData.score ? (
+        <span id="h">👑</span>
+      ) : (
+        <span id="h"></span>
+      )}
+
+      <div>
+        {props.playerData.name}
+        <button onClick={handleRem}>remove</button>
+      </div>
       <Score
         modify={props.modify}
         index={props.index}
         avarage={props.avarage}
         playerData={props.playerData.score}
+        highNum={props.highNum}
       />
     </div>
   );

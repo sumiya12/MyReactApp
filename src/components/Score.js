@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../App.css";
+import Main from "./Main";
 export default function Score(props) {
   // let score = ;\
 
@@ -10,7 +11,9 @@ export default function Score(props) {
     } else {
       props.modify("-", props.index);
     }
-    // console.log(props.playerData);
+    // function handleRem() {
+    //   props.highNum(playerData);
+    // }
   }
 
   // debugger;
