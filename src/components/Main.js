@@ -83,7 +83,7 @@ function Main(props) {
 
   function remMydata(num) {
     setPlayerData(
-      [...playerData].filter((e, i) => {
+      playerData.filter((e, i) => {
         return i !== num;
       })
     );
@@ -96,7 +96,7 @@ function Main(props) {
       scores.push(person.score);
     });
     let highScore = Math.max(...scores);
-
+    // console.log(highScore);
     return highScore;
   };
 

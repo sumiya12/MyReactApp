@@ -9,7 +9,7 @@ export default function Player(props) {
     props.remMydata(props.index);
   };
 
-  console.log(props.highscore);
+  // console.log(props.highscore);
 
   return (
     <div
